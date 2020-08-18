@@ -29,16 +29,6 @@ Basket pricer returns a dictionary that looks like the following:
 
 This component uses Pytest to test it's features.
 
-In development, utilise your IDE's debugger as often as possible. There is tons of information on the internet for how to install and use debuggers. VSCode has a brilliant Python debugger which you should be using all the time.
-
-Important
-* Print out only what you abolutely need to.
-* Mock and Patch functions you are interacting with, but not testing.
-* Aim for 70% test coverage.
-* Remember: You are paid to write working code, not tests. 100% test coverage isn't our goal.
-
-If you _have_ to run tests outside of your IDE's debugger:
-
 Run all test suites:
 
 ```
