@@ -1,0 +1,19 @@
+[
+    {
+        "name":"buy two get one free", 
+        "discount_type": "bogof",
+        "buy":2,
+        "free":1,
+        "products": [
+            "Baked Beans"
+        ]
+    },
+    {
+        "name":"25% off",
+        "discount_type": "percentage",
+        "amount": 25,
+        "products": [
+            "Sardines"
+        ]
+    }
+]
