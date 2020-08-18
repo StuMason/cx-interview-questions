@@ -21,13 +21,13 @@ Basket pricer returns a dictionary that looks like the following:
 ## Installation
 
 0. Install Python 3.7 and pipenv on your dev machine
-1. Clone the repo `git clone https://github.com/pfizer/cat-base-sam`
+1. Clone the repo `git clone https://github.com/StuMason/cx-interview-questions`
 2. Install requirements `make install`
 3. Confirm tests work with `make test`
 
 ## Testing
 
-This component uses Unittest to test it's features.
+This component uses Pytest to test it's features.
 
 In development, utilise your IDE's debugger as often as possible. There is tons of information on the internet for how to install and use debuggers. VSCode has a brilliant Python debugger which you should be using all the time.
 
