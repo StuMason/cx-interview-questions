@@ -99,7 +99,9 @@ Example structure below:
 
 ### Offers
 
-List of available offers
+List of available offers.
+
+Currently there are only 2 offer types - percentage and bogof. Both of these offers types are customisable using the `details` object.
 
 #### Breakdown
 

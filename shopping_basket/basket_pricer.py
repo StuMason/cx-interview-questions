@@ -46,6 +46,8 @@ class BasketPricer:
             )
             if "discount" in item:
                 self.pricer["discount"] += item["discount"]
+                if item['discount'] > item['total']:
+                    item['discount'] = item['total']
                 self.pricer["total"] += item["total"] - item["discount"]
             else:
                 self.pricer["total"] += item["total"]

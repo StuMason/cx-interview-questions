@@ -102,3 +102,31 @@ class TestBasketPricer(TestCase):
         pricer.calculate_totals()
         expected = {"sub-total": 6.96, "discount": 0.95, "total": 6.01}
         self.assertEqual(expected, pricer.pricer)
+
+    def test_calculate_total_two(self):
+        pricer = BasketPricer([], [], [])
+        pricer.basket_catalogue = [
+            {
+                "name": "Baked Beans",
+                "quantity": 2,
+                "price": 0.99,
+                "total": 1.98,
+                "discount": 5.00,
+            },
+            {
+                "name": "Biscuits",
+                "quantity": 1,
+                "price": 1.20,
+                "total": 1.20,
+            },
+            {
+                "name": "Sardines",
+                "quantity": 2,
+                "price": 1.89,
+                "total": 3.78,
+                "discount": 0.95,
+            },
+        ]
+        pricer.calculate_totals()
+        expected = {"sub-total": 6.96, "discount": 5.95, "total": 4.03}
+        self.assertEqual(expected, pricer.pricer)
