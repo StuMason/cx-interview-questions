@@ -56,7 +56,7 @@ List of products in customers basket.
 #### Breakdown
 
 Name | Type | Description | Required
---- | --- | --- | --- | ---
+--- | --- | --- | --- 
 name | *string* | Name of the product | *YES*
 quantity | *integer* | Quantity of product in users basket | *YES*
 
@@ -78,7 +78,7 @@ List of products a shop has.
 #### Breakdown
 
 Name | Type | Description | Required
---- | --- | --- | --- | ---
+--- | --- | --- | ---
 name | *string* | Name of the product | *YES*
 price | *float* | Price of line item | *YES*
 
@@ -106,7 +106,7 @@ Currently there are only 2 offer types - percentage and bogof. Both of these off
 #### Breakdown
 
 Name | Type | Description | Required
---- | --- | --- | --- | ---
+--- | --- | --- | ---
 name | *string* | Name of the product | *YES*
 discount_type | *string* | Type of discount - directly related to the method in the OfferCalculator class | *YES*
 details | *string* | discount_type specific details | *YES*
