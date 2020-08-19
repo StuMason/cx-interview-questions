@@ -65,3 +65,9 @@ class TestBasketPricer(TestCase):
         pricer.basket_catalogue_calc()
         expected = [{"name": "Foo", "quantity": 10}]
         self.assertEqual(expected, pricer.basket_catalogue)
+
+    def test_basket_offers_calculator(self):
+        pricer = BasketPricer(self.basket_one, self.catalogue, self.offers)
+        pricer.basket_offers_calc()
+
+

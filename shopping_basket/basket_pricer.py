@@ -27,7 +27,13 @@ class BasketPricer:
             if catalogue_listing:
                 item['price'] = catalogue_listing[0]['price']
                 item['total'] = item['price'] * item['quantity']
-
+    
+    def basket_offers_calc(self):
+        for item in self.basket_catalogue:
+            on_offer = list(
+                filter(lambda x: item['name'] in x["products"], self.offers))
+            if on_offer:
+                item['discount'] = on_offer[0]['name']
 
 if __name__ == "__main__":
     try:
