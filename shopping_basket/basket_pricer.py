@@ -16,7 +16,7 @@ class BasketPricer:
         self.pricer = {"sub-total": 0.00, "discount": 0.00, "total": 0.00}
         self.offer_calc = OfferCalculator()
 
-    def handle(self):
+    def handle(self) -> dict:
         self.basket_catalogue_calc()
         self.basket_offers_calc()
         self.calculate_totals()
