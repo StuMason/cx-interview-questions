@@ -16,7 +16,7 @@ class BasketPricer:
         self.pricer = {"sub-total": 0.00, "discount": 0.00, "total": 0.00}
         self.offer_calc = OfferCalculator()
 
-    def handle(self):
+    def handle(self) -> dict:
         self.basket_catalogue_calc()
         self.basket_offers_calc()
         self.calculate_totals()
@@ -44,8 +44,13 @@ class BasketPricer:
             self.pricer["sub-total"] = Helpers.formatted(
                 self.pricer["sub-total"] + item["total"]
             )
-            self.pricer["discount"] += item["discount"]
-            self.pricer["total"] += item["total"] - item["discount"]
+            if "discount" in item:
+                self.pricer["discount"] += item["discount"]
+                if item['discount'] > item['total']:
+                    item['discount'] = item['total']
+                self.pricer["total"] += item["total"] - item["discount"]
+            else:
+                self.pricer["total"] += item["total"]
 
 
 if __name__ == "__main__":
