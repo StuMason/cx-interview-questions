@@ -44,8 +44,11 @@ class BasketPricer:
             self.pricer["sub-total"] = Helpers.formatted(
                 self.pricer["sub-total"] + item["total"]
             )
-            self.pricer["discount"] += item["discount"]
-            self.pricer["total"] += item["total"] - item["discount"]
+            if "discount" in item:
+                self.pricer["discount"] += item["discount"]
+                self.pricer["total"] += item["total"] - item["discount"]
+            else:
+                self.pricer["total"] += item["total"]
 
 
 if __name__ == "__main__":

@@ -90,7 +90,6 @@ class TestBasketPricer(TestCase):
                 "quantity": 1,
                 "price": 1.20,
                 "total": 1.20,
-                "discount": 0.00,
             },
             {
                 "name": "Sardines",
