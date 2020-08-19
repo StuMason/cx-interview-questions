@@ -27,28 +27,40 @@ Basket pricer returns a dictionary that looks like the following:
 
 ## Testing
 
-This component uses Pytest to test it's features.
+This component uses a combination of Unittest and Pytest to test it's features.
 
 Run all test suites:
 
-```
+```BASH
 make test
 ```
 
 Run single suite of tests:
 
-```
-python3 -m unittest shopping_basket_tests/test_Filter.py
+```BASH
+python3 -m unittest shopping_basket_tests/test_basket_pricer.py
 ```
 
 Run one test method:
 
-```
-python3 -m pytest shopping_basket_tests/test_Filter.py -k "test_defaultFilter"
+```BASH
+pytest ./shopping_basket_tests -vvv -s -k "test_defaultFilter"
 ```
 
 ## API
 
 ### CLI
 
+You can run `basket_pricer.py` in terminal directly by passing it three arguments - being the locations for json files for the basket, catalogue and offers, i.e.
+
+```BASH
+python3 ./basket_pricer.py shopping_basket_tests/fixtures/test_basket_one.json shopping_basket_tests/fixtures/test_catalogue.json shopping_basket_tests/fixtures/test_offers.json
+```
+
+The above command uses test json files within the fixtures directory.
+
+It outputs a JSON formatted string to the terminal.
+
 ### Importing Directly
+
+You can import the basket pricer directly

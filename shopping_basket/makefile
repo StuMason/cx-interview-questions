@@ -1,5 +1,5 @@
 install:
-	pipenv install
+	pipenv install --pre
 
 test:
 	pytest ./shopping_basket_tests -vvv
