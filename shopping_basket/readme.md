@@ -38,13 +38,13 @@ make test
 Run single suite of tests:
 
 ```BASH
-python3 -m unittest shopping_basket_tests/test_basket_pricer.py
+python3 -m unittest tests/test_basket_pricer.py
 ```
 
 Run one test method:
 
 ```BASH
-pytest ./shopping_basket_tests -vvv -s -k "test_defaultFilter"
+pytest ./tests -vvv -s -k "test_defaultFilter"
 ```
 
 ## API
@@ -54,7 +54,7 @@ pytest ./shopping_basket_tests -vvv -s -k "test_defaultFilter"
 You can run `basket_pricer.py` in terminal directly by passing it three arguments - being the locations for json files for the basket, catalogue and offers, i.e.
 
 ```BASH
-python3 ./basket_pricer.py shopping_basket_tests/fixtures/test_basket_one.json shopping_basket_tests/fixtures/test_catalogue.json shopping_basket_tests/fixtures/test_offers.json
+python3 ./basket_pricer.py tests/fixtures/test_basket_one.json tests/fixtures/test_catalogue.json tests/fixtures/test_offers.json
 ```
 
 The above command uses test json files within the fixtures directory.

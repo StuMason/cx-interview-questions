@@ -8,11 +8,11 @@ from basket_pricer import BasketPricer
 class TestBasketPricer(TestCase):
     def setUp(self):
         cwd = os.getcwd()
-        with open(cwd + '/shopping_basket_tests/fixtures/test_basket_one.json') as f:
+        with open(cwd + '/tests/fixtures/test_basket_one.json') as f:
             self.basket_one = json.load(f)
-        with open(cwd + '/shopping_basket_tests/fixtures/test_catalogue.json') as f:
+        with open(cwd + '/tests/fixtures/test_catalogue.json') as f:
             self.catalogue = json.load(f)
-        with open(cwd + '/shopping_basket_tests/fixtures/test_offers.json') as f:
+        with open(cwd + '/tests/fixtures/test_offers.json') as f:
             self.offers = json.load(f)
 
     def test_return_value(self):

@@ -11,10 +11,10 @@
         ]
     },
     {
-        "name":"25% off",
+        "name":"25% off total",
         "discount_type": "percentage",
         "details": {
-            "amount": 25
+            "amount": 0.25
         },
         "products": [
             "Sardines"
