@@ -1,8 +1,8 @@
 install:
-	pipenv install
+	pipenv install --pre
 
 test:
-	pytest ./shopping_basket_tests -vvv
+	pytest ./tests -vvv
 
 # Validate Python code according to the style guide.
 flake:
@@ -13,4 +13,4 @@ black:
 	black .
 
 testcli:
-	py ./basket_pricer.py shopping_basket_tests/fixtures/test_basket_one.json shopping_basket_tests/fixtures/test_catalogue.json shopping_basket_tests/fixtures/test_offers.json
+	py ./basket_pricer.py tests/fixtures/test_basket_one.json tests/fixtures/test_catalogue.json tests/fixtures/test_offers.json
