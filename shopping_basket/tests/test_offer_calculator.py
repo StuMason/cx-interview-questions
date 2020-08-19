@@ -1,6 +1,4 @@
 from unittest import TestCase
-import json
-import os
 
 from offer_calculator import OfferCalculator
 
@@ -12,20 +10,17 @@ class TestOfferCalculator(TestCase):
             "name": "Baked Beans",
             "quantity": 4,
             "price": 0.99,
-            "total": 3.96
+            "total": 3.96,
         }
 
-        offers = [{
-            "name": "buy two get one free",
-            "discount_type": "bogof",
-            "details": {
-                "buy": 2,
-                "free": 1
-            },
-            "products": [
-                "Baked Beans"
-            ]
-        }]
+        offers = [
+            {
+                "name": "buy two get one free",
+                "discount_type": "bogof",
+                "details": {"buy": 2, "free": 1},
+                "products": ["Baked Beans"],
+            }
+        ]
 
         results = calc.handle(offers, basket_item)
         expected = {"discount": 0.99}
@@ -38,19 +33,14 @@ class TestOfferCalculator(TestCase):
             "name": "Baked Beans",
             "quantity": 6,
             "price": 0.99,
-            "total": 3.96
+            "total": 3.96,
         }
 
         offer = {
             "name": "buy two get one free",
             "discount_type": "bogof",
-            "details": {
-                "buy": 2,
-                "free": 1
-            },
-            "products": [
-                "Baked Beans"
-            ]
+            "details": {"buy": 2, "free": 1},
+            "products": ["Baked Beans"],
         }
 
         results = calc.bogof(offer, basket_item)
@@ -60,13 +50,7 @@ class TestOfferCalculator(TestCase):
     def test_bogof_perm_one(self):
         calc = OfferCalculator()
         basket_item = {"quantity": 4, "price": 0.99}
-        offer = {
-            "discount_type": "bogof",
-            "details": {
-                "buy": 2,
-                "free": 1
-            }
-        }
+        offer = {"discount_type": "bogof", "details": {"buy": 2, "free": 1}}
         results = calc.bogof(offer, basket_item)
 
         self.assertEqual(0.99, results)
@@ -74,13 +58,7 @@ class TestOfferCalculator(TestCase):
     def test_bogof_perm_two(self):
         calc = OfferCalculator()
         basket_item = {"quantity": 9, "price": 0.99}
-        offer = {
-            "discount_type": "bogof",
-            "details": {
-                "buy": 2,
-                "free": 1
-            }
-        }
+        offer = {"discount_type": "bogof", "details": {"buy": 2, "free": 1}}
         results = calc.bogof(offer, basket_item)
 
         self.assertEqual(2.97, results)
@@ -88,13 +66,7 @@ class TestOfferCalculator(TestCase):
     def test_bogof_perm_three(self):
         calc = OfferCalculator()
         basket_item = {"quantity": 10, "price": 0.99}
-        offer = {
-            "discount_type": "bogof",
-            "details": {
-                "buy": 2,
-                "free": 1
-            }
-        }
+        offer = {"discount_type": "bogof", "details": {"buy": 2, "free": 1}}
         results = calc.bogof(offer, basket_item)
 
         self.assertEqual(2.97, results)
@@ -102,13 +74,7 @@ class TestOfferCalculator(TestCase):
     def test_bogof_perm_four(self):
         calc = OfferCalculator()
         basket_item = {"quantity": 1, "price": 0.99}
-        offer = {
-            "discount_type": "bogof",
-            "details": {
-                "buy": 2,
-                "free": 1
-            }
-        }
+        offer = {"discount_type": "bogof", "details": {"buy": 2, "free": 1}}
         results = calc.bogof(offer, basket_item)
 
         self.assertEqual(0.00, results)
@@ -116,39 +82,15 @@ class TestOfferCalculator(TestCase):
     def test_percentage_with_sardines(self):
         calc = OfferCalculator()
 
-        basket_item = {
-            "name": "Sardines",
-            "quantity": 2,
-            "price": 1.89,
-            "total": 3.78
-        }
+        basket_item = {"name": "Sardines", "quantity": 2, "price": 1.89, "total": 3.78}
 
         offer = {
-            "name":"25% off total",
+            "name": "25% off total",
             "discount_type": "percentage",
-            "details": {
-                "amount": 25
-            },
-            "products": [
-                "Sardines"
-            ]
+            "details": {"amount": 25},
+            "products": ["Sardines"],
         }
 
         results = calc.percentage(offer, basket_item)
 
         self.assertEqual(0.95, results)
-
-    def test_formatted_discount(self):
-        calc = OfferCalculator()
-        result = calc.formatted_discount(2.33433553)
-        self.assertEqual(2.33, result)
-
-        result = calc.formatted_discount(0.9566666)
-        self.assertEqual(0.96, result)
-
-        result = calc.formatted_discount(0.945)
-        self.assertEqual(0.95, result)
-
-
-
-
