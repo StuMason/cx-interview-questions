@@ -117,7 +117,7 @@ Example structure below:
 ```JSON
 [
     {
-        "name":"buy two get one free", 
+        "name":"buy two get one free",
         "discount_type": "bogof",
         "details": {
             "buy":2,
